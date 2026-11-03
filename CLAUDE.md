@@ -2,7 +2,7 @@
 
 A casual, pixel-art management sim about a dive bar on a Kessler-Amari Combine waystation. The player is an unseen owner who designs the place and sets policy.
 
-Current stage: **scene spike**. It answers whether a live canvas crowd runs well on a real iPhone before anything else gets built.
+Current stage: **first playable slice** (one deck, three visitor types, one rivalry). The scene test passed on a real iPhone, holding near 60 frames per second with 200 people. Work on `main`.
 
 ## Requirements
 
@@ -15,11 +15,13 @@ Current stage: **scene spike**. It answers whether a live canvas crowd runs well
 
 ## Layout
 
-- `src/sim/`: the deck layout, distance-field pathing and crowd simulation.
+- `src/sim/`: the deck layout, distance-field pathing, and the simulation of ships, visitors, spending and rivals.
+- `src/data/`: the visitor table and balance numbers.
+- `scripts/simulate.ts`: headless runs across seeds; run it after changing balance.
 - `src/render/`: code-drawn pixel art, integer scaling, frame stats. It reads sim state and interpolates between ticks.
-- `src/main.ts`: the page, the loop and the performance readout.
+- `src/main.ts`: the page, the loop and the readout.
 
 ## Commands
 
 - `npm run dev -- --host`: dev server, reachable from a phone on the same network.
-- `npm test`, `npm run typecheck`, `npm run build`.
+- `npm test`, `npm run typecheck`, `npm run build`, `npm run simulate [hours]`.
